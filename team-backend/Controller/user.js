@@ -2,43 +2,57 @@ const bcrypt = require("bcrypt");
 const { generateToken } = require("../Utils/JWTFunctions");
 const User = require("../Model/userSchema");
 const UserDetails = require("../Model/userDataSchema");
+const { areValidCredentials } = require("../Utils/validateCredentials");
 
 exports.login = async (req, res) => {
   console.log("/login");
 
   try {
     const { userID, password } = req.body;
-    const userPayload = { userID };
-    const result = await User.findOne({ userID });
+    if (areValidCredentials(userID, password)) {
+      const userPayload = { userID };
+      const result = await User.findOne({ userID });
 
-    if (!result) {
-      res.status(400).json({ message: "user not found" });
-    } else if (result) {
-      const { passwordHash } = result;
-      console.log(`----------password:${password}  -----hash:${passwordHash}`);
-      bcrypt.compare(password, passwordHash, function (err, isEqual) {
-        if (err) {
-          console.log("----error:" + err);
-        }
-        if (isEqual) {
-          const token = generateToken(userPayload);
-          res.status(200).json({
-            success: true,
-            isUserAuthenticated: true,
-            customerID: userID,
-            token,
-          });
-        } else {
-          res.status(400).json({
-            success: true,
-            isUserAuthenticated: false,
-            message: "password is wrong",
-          });
-        }
+      if (!result) {
+        res.status(400).json({ message: "Invalid User Credentials!" });
+      } else if (result) {
+        const { passwordHash } = result;
+        bcrypt.compare(password, passwordHash, function (err, isEqual) {
+          if (err) {
+            console.log("----error:" + err);
+          }
+          if (isEqual) {
+            const token = generateToken(userPayload);
+            res.status(200).json({
+              success: true,
+              isUserAuthenticated: true,
+              customerID: userID,
+              token,
+            });
+          } else {
+            res.status(400).json({
+              success: true,
+              isUserAuthenticated: false,
+              message: "Invalid User Credentials!",
+            });
+          }
+        });
+      }
+    } else {
+      res.status(400).json({
+        success: true,
+        isUserAuthenticated: false,
+        message: "Please enter login credentials to continue",
       });
     }
   } catch (error) {
-    res.status(500).json({ success: false });
+    res
+      .status(500)
+      .json({
+        success: false,
+        isUserAuthenticated: false,
+        message: "Sorry unable to connect to system!",
+      });
   }
 };
 
@@ -46,20 +60,25 @@ exports.signup = (req, res) => {
   try {
     console.log(req.body);
     const { id, password } = req.body;
-    const saltRounds = 10;
-    console.log(`----------password:${password}  -----id:${id}`);
 
-    bcrypt.hash(password, saltRounds, function (err, passwordHash) {
-      // Store hash in your password DB.
+    if (areValidCredentials(id, password)) {
+      const saltRounds = 10;
+      console.log(`----------password:${password}  -----id:${id}`);
 
-      if (err) {
-        console.log("----error:" + err);
-      }
+      bcrypt.hash(password, saltRounds, function (err, passwordHash) {
+        // Store hash in your password DB.
 
-      const newUser = new User({ userID: id, passwordHash });
-      newUser.save();
-      res.status(200).send("Signup Successfull");
-    });
+        if (err) {
+          console.log("----error:" + err);
+        }
+
+        const newUser = new User({ userID: id, passwordHash });
+        newUser.save();
+        res.status(200).send("Signup Successfull");
+      });
+    } else {
+      res.status(400).send("Please enter valid credentials");
+    }
   } catch (error) {
     console.log(error.message);
     res.status(400).send("Some issue occured" + error.message);

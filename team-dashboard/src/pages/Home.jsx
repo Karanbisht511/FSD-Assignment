@@ -1,7 +1,9 @@
 import { Link, Outlet, Navigate } from "react-router-dom"
-import { useContext,useEffect } from "react"
+import { useContext, useEffect } from "react"
 import AuthContext from "../context/AuthContext"
 import UserDetailsContext from "../context/UserDetailsContext.js"
+import Brand from "./Brand"
+import "./home.css"
 
 export default function Home() {
 
@@ -21,11 +23,19 @@ export default function Home() {
         <Navigate to="/" replace={true} />
     } else {
         return <>
-            <Link to="dashboard">Dashboard</Link>
-            <Link to="about">About</Link>
-            <Link to="team">Team</Link>
-            <div>
-                <Outlet />
+            <div className="home">
+              
+                <div className="main_container">
+                <Brand />
+                    <div className="navigation common_width">
+                        <Link  className="nav_links" to="dashboard">Dashboard</Link>
+                        <Link className="nav_links" to="about">About</Link>
+                        <Link className="nav_links" to="team">Team</Link>
+                    </div>
+                    <div className="content">
+                        <Outlet />
+                    </div>
+                </div>
             </div>
         </>
     }

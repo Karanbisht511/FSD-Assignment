@@ -1,0 +1,246 @@
+.home {
+  background-image: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% 100%;
+}
+
+.main_container {
+  width: 90%;
+  height: 80%;
+  /* background-color: aquamarine; */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: rgb(205, 172, 172);
+  /* width: 25%; */
+  font-family: Microsoft JhengHei, arial;
+  font-weight: bold;
+  font-size: 28px;
+  color: #cc0000;
+  border: 2px solid black;
+}
+
+.nav_links {
+  text-decoration: none;
+  margin: 10px;
+  border-bottom: 3px solid black;
+}
+
+a:active {
+  color: #666666;
+}
+
+.content {
+  width: 75%;
+  margin-left: 10px;
+  border: 2px solid black;
+}
+
+/* DASHBOARD */
+
+#dashboard {
+  padding: 2%;
+}
+
+.dashboard_intro {
+  padding: 2%;
+  display: flex;
+  justify-content: flex-start;
+  /* border-bottom: 3px solid black; */
+}
+
+.dashboard_intro img {
+  width: 100px;
+  height: 100px;
+  border: 10px solid black;
+  margin: 10px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.balance {
+  font-size: 18px;
+  color: #cc0000;
+  text-align: left;
+}
+
+.border_bottom {
+  border-bottom: 3px solid rgb(115, 133, 134);
+}
+
+.expenditure_table {
+  padding: 20px;
+}
+
+table * {
+  border: 2px solid black;
+  width: 80%;
+  text-align: left;
+}
+
+table th {
+  background-color: rgb(139, 152, 152);
+}
+
+.date {
+  width: 20%;
+}
+
+.desc {
+  width: 30%;
+}
+
+.amount {
+  width: 20%;
+}
+
+.flex_container {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.subscription_container div {
+  margin: 5px;
+  padding: 5px;
+}
+
+.subscribe {
+  font-size: 18px;
+  text-align: left;
+}
+
+.submit_btn {
+  width: 80px;
+  height: 40px;
+  border-radius: 15%;
+  background-color: rgb(112, 38, 112);
+  color: white;
+}
+
+.two_way_binding {
+  width: 50%;
+}
+
+.dataBinding {
+  border-top: 2px solid rgb(49, 168, 162);
+  width: 300px;
+  height: 50px;
+}
+
+/* ABOUT */
+#about {
+  padding: 2%;
+}
+
+.heading {
+  padding: 5px;
+  text-align: left;
+  border-bottom: 2px solid black;
+}
+
+.flex_container1 {
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.description {
+  width: 60%;
+}
+
+.reuse_component {
+  text-align: left;
+}
+
+.colored_box {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  color: #ff0000;
+}
+
+.flex_container2 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 50%;
+}
+
+/* Team */
+
+#team {
+  padding: 2%;
+  text-align: left;
+}
+
+.teamlist_container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.team_list {
+  width: 30%;
+}
+
+.member {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  justify-items: flex-start;
+}
+
+.member_image {
+  width: 20%;
+}
+
+.member_image{
+  margin: auto;
+}
+
+.member_name {
+  width: 60%;
+  padding: 10px;
+}
+
+.envelope_container{
+  width: 50%;
+}
+
+.envelope {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  animation-name: envelope;
+  animation-duration: 4s;
+  background-color: red;
+  animation-iteration-count: infinite;
+}
+
+@keyframes envelope {
+  from {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+  }
+  to {
+    background-color: yellow;
+    width: 200px;
+    height: 200px;
+  }
+}

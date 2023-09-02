@@ -4,9 +4,10 @@ import axios from "axios";
 
 export default function AuthState(props) {
   const state = {
-    isAuthenticated: false,
+    isAuthenticated:undefined,
     navigateToHome: false,
-    authError: null,
+    authError: false,
+    invalidForm:false
   };
 
   const [auth, setAuth] = useState(state);
@@ -21,6 +22,7 @@ export default function AuthState(props) {
         })
         .then((response) => {
           console.log(response);
+          console.log(response);
           const { token, isUserAuthenticated, customerID } = response.data;
 
           sessionStorage.setItem("token", token);
@@ -33,7 +35,9 @@ export default function AuthState(props) {
           }));
         });
     } catch (error) {
+// console.log(error);
       const { message } = error.response.data;
+      console.log(message);
       setAuth((prev) => ({
         ...prev,
         authError: message,
