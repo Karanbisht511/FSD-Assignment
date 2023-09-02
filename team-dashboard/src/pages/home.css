@@ -1,9 +1,11 @@
+
 .home {
   background-image: url("../images/bg.jpg");
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   background-size: 100% 100%;
+  font-size: 13px;
 }
 
 .main_container {
@@ -17,21 +19,25 @@
 }
 
 .navigation {
+  padding: 20px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   text-align: left;
-  background-color: rgb(235, 226, 226);
+  background-color: #F2F2F2;
   font-family: Microsoft JhengHei, arial;
   font-weight: bold;
   font-size: 28px;
   color: #cc0000;
   border: 2px solid black;
-  padding: 5%;
 }
 
 .nav_links {
   text-decoration: none;
+  font-family: Microsoft JhengHei, arial;
+  font-weight: bold;
+  font-size: 28px;
+  color: #cc0000;
   margin: 10px;
   border-bottom: 3px solid black;
 }
@@ -123,11 +129,12 @@ table th {
 }
 
 .submit_btn {
-  width: 80px;
-  height: 40px;
-  border-radius: 15%;
-  background-color: rgb(112, 38, 112);
-  color: white;
+  /* width: 80px;
+  height: 40px; */
+  border-radius: 5px;
+  background-color:#169BD5;
+  color: #fff;
+  padding: 5px 10px 3px 10px;
 }
 
 .two_way_binding {
