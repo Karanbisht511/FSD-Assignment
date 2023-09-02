@@ -17,14 +17,16 @@ export default function About() {
                 <h1>About iJavascript</h1>
             </div>
             <div className="flex_container1">
-                <div><img style={{ width: "100px", height: "100px", border: "3px solid black" }} src={bg} alt="" /></div>
-                <p className="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus pariatur ullam officiis, fuga adipisci possimus ratione. Corporis aliquid numquam reiciendis, suscipit totam dolore. Dolor cum inventore natus velit facere sit.</p>
+                <div><img style={{ width: "150px", height: "150px", border: "3px solid black" }} src={bg} alt="" /></div>
+                <div className="description"> <p >iJavascript is a research group, founded to check different javascript frameworks based on different design patters.</p>
+                    <p>During Kick-off it will test React,Angular,Knockout and Ember JS features. This use case will prove different aspects of frameworks capacities.</p>
+                </div>
             </div>
             <div className="reuse_component">
                 <h3>Re-usable Component</h3>
                 <div className="flex_container2">
-                  <ReusableComp></ReusableComp>
-                  <ReusableComp></ReusableComp>
+                    <ReusableComp></ReusableComp>
+                    <ReusableComp></ReusableComp>
                 </div>
             </div>
         </div>

@@ -8,13 +8,15 @@ export default function Team() {
     const { auth, logout } = useContext(AuthContext)
     const { isAuthenticated } = auth
 
-    const nameList = ['Beng Tiong Tang', 'Niraj Kumar Jha', 'Siddhart Pandey', 'Jatin Suri', 'Parasmani Jain', 'Saurabh Nilegaonkar', 'Bhawana Sharma', 'Vimlesh Singh']
+    const nameList = ['Beng Tiong Tang', 'Niraj Kumar Jha', 'Siddhart Pandey', 'Jatin Suri', 'Parasmani Jain', 'Saurabh Nilegaonkar', 'Bhawana Sharma']
 
     if (!isAuthenticated) {
         <Navigate to="/" replace={true} />
     } else {
         return <div id="team">
-            <h1 className="heading">Meet the Team</h1>
+            <div className="heading">
+                <h1>Meet the Team</h1>
+            </div>
             <div className="teamlist_container">
                 <div className="team_list">
                     {nameList.map(element => <Member image={bg} name={element} />)}

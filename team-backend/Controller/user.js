@@ -7,52 +7,45 @@ const { areValidCredentials } = require("../Utils/validateCredentials");
 exports.login = async (req, res) => {
   console.log("/login");
 
+  const response = {};
+
   try {
     const { userID, password } = req.body;
-    if (areValidCredentials(userID, password)) {
-      const userPayload = { userID };
-      const result = await User.findOne({ userID });
+    const userPayload = { userID };
+    console.log(userPayload);
+    const result = await User.findOne({ userID });
 
-      if (!result) {
-        res.status(400).json({ message: "Invalid User Credentials!" });
-      } else if (result) {
-        const { passwordHash } = result;
-        bcrypt.compare(password, passwordHash, function (err, isEqual) {
-          if (err) {
-            console.log("----error:" + err);
-          }
-          if (isEqual) {
-            const token = generateToken(userPayload);
-            res.status(200).json({
-              success: true,
-              isUserAuthenticated: true,
-              customerID: userID,
-              token,
-            });
-          } else {
-            res.status(400).json({
-              success: true,
-              isUserAuthenticated: false,
-              message: "Invalid User Credentials!",
-            });
-          }
-        });
-      }
-    } else {
-      res.status(400).json({
-        success: true,
-        isUserAuthenticated: false,
-        message: "Please enter login credentials to continue",
+    if (!result) {
+      res.status(400).json({ message: "Invalid User Credentials!" });
+    } else if (result) {
+      const { passwordHash } = result;
+      bcrypt.compare(password, passwordHash, function (err, isEqual) {
+        if (err) {
+          console.log("----error:" + err);
+        }
+        if (isEqual) {
+          const token = generateToken(userPayload);
+          res.status(200).json({
+            success: true,
+            isUserAuthenticated: true,
+            customerID: userID,
+            token,
+          });
+        } else {
+          res.status(400).json({
+            success: true,
+            isUserAuthenticated: false,
+            message: "Invalid User Credentials!",
+          });
+        }
       });
     }
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        isUserAuthenticated: false,
-        message: "Sorry unable to connect to system!",
-      });
+    res.status(500).json({
+      success: false,
+      isUserAuthenticated: false,
+      message: "Sorry unable to connect to system!",
+    });
   }
 };
 
@@ -66,8 +59,6 @@ exports.signup = (req, res) => {
       console.log(`----------password:${password}  -----id:${id}`);
 
       bcrypt.hash(password, saltRounds, function (err, passwordHash) {
-        // Store hash in your password DB.
-
         if (err) {
           console.log("----error:" + err);
         }

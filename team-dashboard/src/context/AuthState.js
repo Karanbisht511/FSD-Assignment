@@ -7,8 +7,7 @@ export default function AuthState(props) {
     isAuthenticated:undefined,
     navigateToHome: false,
     authError: false,
-    invalidForm:false
-  };
+   };
 
   const [auth, setAuth] = useState(state);
 
@@ -35,7 +34,6 @@ export default function AuthState(props) {
           }));
         });
     } catch (error) {
-// console.log(error);
       const { message } = error.response.data;
       console.log(message);
       setAuth((prev) => ({

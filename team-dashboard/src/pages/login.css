@@ -22,6 +22,7 @@
 #errorBar {
   width: 80%;
   height: 70px;
+  overflow-y: auto;
   background-color: rgb(204, 68, 68);
   margin: auto;
   margin-top: 5%;

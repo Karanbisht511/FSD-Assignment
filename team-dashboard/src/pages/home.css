@@ -9,7 +9,6 @@
 .main_container {
   width: 90%;
   height: 80%;
-  /* background-color: aquamarine; */
   position: absolute;
   bottom: 0;
   right: 0;
@@ -19,16 +18,16 @@
 
 .navigation {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-
-  background-color: rgb(205, 172, 172);
-  /* width: 25%; */
+  text-align: left;
+  background-color: rgb(235, 226, 226);
   font-family: Microsoft JhengHei, arial;
   font-weight: bold;
   font-size: 28px;
   color: #cc0000;
   border: 2px solid black;
+  padding: 5%;
 }
 
 .nav_links {
@@ -37,7 +36,7 @@
   border-bottom: 3px solid black;
 }
 
-a:active {
+a.active {
   color: #666666;
 }
 
@@ -156,6 +155,7 @@ table th {
   margin: 20px;
   display: flex;
   justify-content: space-around;
+  text-align: left;
 }
 
 .description {
@@ -190,6 +190,7 @@ table th {
 .teamlist_container {
   display: flex;
   justify-content: space-evenly;
+  padding: 2%;
 }
 
 .team_list {
@@ -209,7 +210,7 @@ table th {
   width: 20%;
 }
 
-.member_image{
+.member_image {
   margin: auto;
 }
 
@@ -218,7 +219,7 @@ table th {
   padding: 10px;
 }
 
-.envelope_container{
+.envelope_container {
   width: 50%;
 }
 

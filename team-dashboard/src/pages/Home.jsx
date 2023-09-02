@@ -1,4 +1,4 @@
-import { Link, Outlet, Navigate } from "react-router-dom"
+import { Link, Outlet, Navigate,NavLink } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import AuthContext from "../context/AuthContext"
 import UserDetailsContext from "../context/UserDetailsContext.js"
@@ -28,9 +28,9 @@ export default function Home() {
                 <div className="main_container">
                 <Brand />
                     <div className="navigation common_width">
-                        <Link  className="nav_links" to="dashboard">Dashboard</Link>
-                        <Link className="nav_links" to="about">About</Link>
-                        <Link className="nav_links" to="team">Team</Link>
+                        <NavLink  className="nav_links" to="dashboard">Dashboard</NavLink>
+                        <NavLink className="nav_links" to="about">About</NavLink>
+                        <NavLink className="nav_links" to="team">Team</NavLink>
                     </div>
                     <div className="content">
                         <Outlet />
