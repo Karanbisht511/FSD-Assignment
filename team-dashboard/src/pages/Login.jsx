@@ -1,14 +1,12 @@
 import "./login.css"
-
-import {useContext, useState } from "react"
+import { useContext, useState } from "react"
 import AuthContext from "../context/AuthContext"
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Brand from "./Brand";
 
 export default function Login() {
-    const navigate = useNavigate()
     const { login, auth } = useContext(AuthContext)
-    const { authError, navigateToHome} = auth
+    const { authError, navigateToHome } = auth
 
     const [errors, setErrors] = useState({})
     const [credentials, setCredentials] = useState({
@@ -18,7 +16,7 @@ export default function Login() {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        console.log(name+"  "+value);
+        console.log(name + "  " + value);
         setCredentials(prevElement => (
             { ...prevElement, [name]: value }
         ))
@@ -58,10 +56,10 @@ export default function Login() {
                 {errors.password && <p>{errors.password}</p>}
             </div>
 
-            {navigateToHome && navigate("/home")}
+            {navigateToHome && <Navigate to="/home" replace={true} />}
             <div className="login_form">
                 <div className="credential_wrapper">
-                    <div>
+                    <div id="userId_label" className="label">
                         <label htmlFor="userid">User ID </label>
                     </div>
                     <div>
@@ -69,8 +67,12 @@ export default function Login() {
                     </div>
                 </div>
                 <div className="credential_wrapper">
-                    <label htmlFor="Password">Password</label>
-                    <input type="text" className="credential password" name="password" placeholder="Password" onChange={handleChange} />
+                    <div id="password_label" className="label">
+                        <label htmlFor="Password">Password</label>
+                    </div>
+                    <div>
+                        <input type="password" className="credential password" name="password" placeholder="Password" onChange={handleChange} />
+                    </div>
                 </div>
             </div>
             <button className="login_btn" onClick={handleLoginButton}>Log In</button>

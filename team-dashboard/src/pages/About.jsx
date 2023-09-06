@@ -5,7 +5,7 @@ import bg from "../images/bg.jpg"
 import ReusableComp from "./ReusableComp"
 
 export default function About() {
-    const { auth, logout } = useContext(AuthContext)
+    const { auth } = useContext(AuthContext)
     const { isAuthenticated } = auth
 
     if (!isAuthenticated) {
@@ -17,7 +17,7 @@ export default function About() {
                 <h1>About iJavascript</h1>
             </div>
             <div className="flex_container1">
-                <div><img style={{ width: "150px", height: "150px", border: "3px solid black" }} src={bg} alt="" /></div>
+                <div className="image"><img src={bg} alt="" /></div>
                 <div className="description"> <p >iJavascript is a research group, founded to check different javascript frameworks based on different design patters.</p>
                     <p>During Kick-off it will test React,Angular,Knockout and Ember JS features. This use case will prove different aspects of frameworks capacities.</p>
                 </div>

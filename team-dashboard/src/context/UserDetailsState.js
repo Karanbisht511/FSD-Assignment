@@ -32,7 +32,7 @@ export default function UserDetailsState(props) {
         },
       };
 
-      const response = await axios.get("/users/retrieveUserDetails", config);
+      const response = await axios.get("http://localhost:8000/users/retrieveUserDetails", config);
       console.log(response);
       setUserDetails(response.data.customer);
     } catch (error) {

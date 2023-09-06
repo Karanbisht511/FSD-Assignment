@@ -9,14 +9,11 @@
 
 #brand {
   background-color: #cc0000;
- padding: 20px;
+  padding: 20px;
   height: 10vh;
   position: absolute;
-  top: -140px;
-}
-
-.common_width{
-  width: 20vw;
+  top: -99px;
+  text-align: left;
 }
 
 #errorBar {
@@ -38,13 +35,13 @@
   right: 0;
 }
 
-.login_form{
+.login_form {
   text-align: left;
 }
 
 .credential_wrapper {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-content: center;
   margin: 20px;
   margin-top: 70px;
@@ -59,6 +56,10 @@
   font-size: 13px;
 }
 
+.label {
+  width: 20%;
+}
+
 .login_btn {
   background-color: #cc9900;
   border: #775900;
@@ -69,4 +70,209 @@
   font-size: 35px;
   padding: 5px 20px 3px 20px;
   border-radius: 5px;
+}
+
+@media (min-width: 1987px) {
+  .common_width {
+    width: 20vw;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1987px) {
+  #login_container {
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+  }
+
+  #brand {
+    background-color: #cc0000;
+    padding: 20px;
+    height: 16vh;
+    position: absolute;
+    top: -165px;
+    text-align: left;
+  }
+
+  .common_width {
+    width: 20vw;
+  }
+
+  #errorBar {
+    width: 80%;
+    height: 70px;
+    overflow-y: auto;
+    background-color: rgb(204, 68, 68);
+    margin: auto;
+    margin-top: 5%;
+    text-align: left;
+  }
+
+  .login_wrapper {
+    width: 90%;
+    height: 75%;
+    background-color: rgb(199, 32, 32);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .login_form {
+    text-align: left;
+  }
+
+  .credential_wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    margin: 20px;
+    margin-top: 70px;
+    font-size: 2.5em;
+    width: 80%;
+  }
+
+  .credential {
+    padding: 5px;
+    width: 550px;
+    height: 45px;
+    font-size: 13px;
+  }
+
+  .label {
+    width: 20%;
+  }
+
+  .login_btn {
+    background-color: #cc9900;
+    border: #775900;
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 27px;
+    padding: 5px 20px 3px 20px;
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #brand {
+    background-color: #cc0000;
+    padding: 20px;
+    height: 16vh;
+    width: 50%;
+    top: -105px;
+    left: 0;
+  }
+
+  .login_wrapper {
+    width: 90%;
+    height: 40%;
+    background-color: rgb(199, 32, 32);
+    position: absolute;
+    top: -150px;
+    margin: auto;
+    margin-right: 40px;
+    padding: 2%;
+  }
+
+  .login_form {
+    margin: auto;
+    position: relative;
+    top: -45px;
+  }
+
+  #errorBar {
+    width: 80%;
+    height: 50px;
+    overflow-y: auto;
+    background-color: rgb(204, 68, 68);
+    margin: auto;
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .credential_wrapper {
+    font-size: 1.5em;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .credential {
+    padding: 10px;
+    height: 35px;
+    font-size: 20px;
+    width: 300px;
+  }
+
+  .label {
+    width: 14%;
+  }
+
+  .login_btn {
+    background-color: #cc9900;
+    border: #775900;
+    color: #fff;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-size: 25px;
+    padding: 5px 20px 3px 20px;
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  #brand {
+    height: 16vh;
+    width: 100%;
+  }
+  #brand div {
+    text-align: left;
+  }
+  #brand .iJavascript {
+    font-size: 3em;
+    margin-top: 0px;
+    text-align: center;
+  }
+
+  #errorBar {
+    height: 40px;
+  }
+
+  .login_form {
+    margin-top: 80px;
+  }
+
+  .login_wrapper {
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 80%;
+  }
+
+  .credential_wrapper {
+    margin: 20px auto;
+    display: block;
+    font-size: 1em;
+  }
+
+  .label {
+    margin: 10px 0;
+    width: 40%;
+  }
+
+  .credential {
+    width: 90%;
+  }
+
+  .login_btn {
+    font-size: 20px;
+    width: 130px;
+  }
 }

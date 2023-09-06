@@ -15,7 +15,7 @@ export default function AuthState(props) {
     const { userID, password } = credentials;
     try {
       await axios
-        .post("/users/login", {
+        .post("http://localhost:8000/users/login", {
           userID,
           password,
         })
@@ -34,7 +34,8 @@ export default function AuthState(props) {
           }));
         });
     } catch (error) {
-      const { message } = error.response.data;
+      // console.log(error);
+      const { message } = error?.response?.data;
       console.log(message);
       setAuth((prev) => ({
         ...prev,
