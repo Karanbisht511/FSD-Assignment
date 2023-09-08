@@ -22,8 +22,6 @@ export default function UserDetailsState(props) {
   const [userDetails, setUserDetails] = useState(state);
 
   const getUserDetails = async (customerID, token) => {
-    console.log(sessionStorage);
-    console.log(`${customerID}+++++++++${token}`);
     try {
       const config = {
         headers: {
@@ -31,11 +29,7 @@ export default function UserDetailsState(props) {
           "Content-Type": "application/json",
         },
       };
-
-      const response = await axios.get(
-        "https://fsd-team.onrender.com/users/retrieveUserDetails",
-        config
-      );
+      const response = await axios.get("https://fsd-team.onrender.com/users/retrieveUserDetails", config);
       console.log(response);
       setUserDetails(response.data.customer);
     } catch (error) {
