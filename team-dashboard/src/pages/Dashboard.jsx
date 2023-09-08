@@ -1,5 +1,5 @@
-import { Navigate, useNavigate } from "react-router-dom"
-import { useContext, useEffect } from "react"
+import { Navigate } from "react-router-dom"
+import { useContext } from "react"
 import AuthContext from "../context/AuthContext"
 import UserDetailsContext from "../context/UserDetailsContext.js"
 import bg from "../images/bg.jpg"
@@ -7,16 +7,9 @@ import bg from "../images/bg.jpg"
 export default function Dashboard() {
 
     const { userDetails, getDatesInfo } = useContext(UserDetailsContext)
-    const { auth, logout } = useContext(AuthContext)
+    const { auth } = useContext(AuthContext)
 
     const { isAuthenticated } = auth
-
-    const navigate = useNavigate()
-
-    const handleLogout = () => {
-        logout()
-        navigate("/")
-    }
 
     const { name, last_login, balance, transaction } = userDetails
     let ll = getDatesInfo(last_login)
@@ -48,7 +41,6 @@ export default function Dashboard() {
                             const { date, amount, desc } = element
                             const dateInfo = getDatesInfo(date)
                             const { dd, mm, yyyy } = dateInfo
-                            // console.log(dateInfo);
 
                             return <tr>
                                 <td>{dd}-{mm}-{yyyy}</td>

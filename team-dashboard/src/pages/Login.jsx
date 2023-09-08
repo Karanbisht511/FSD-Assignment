@@ -46,7 +46,6 @@ export default function Login() {
     }
 
     return <div id="login_container">
-
         <div className="login_wrapper">
             <Brand />
             <div id="errorBar">
@@ -56,7 +55,7 @@ export default function Login() {
                 {errors.password && <p className="pwdErr">{errors.password}</p>}
             </div>
 
-            {navigateToHome && <Navigate to="/home" replace={true} />}
+            {navigateToHome && <Navigate to="/home/dashboard" replace={true} />}
             <div className="login_form">
                 <div className="credential_wrapper">
                     <div id="userId_label" className="label">

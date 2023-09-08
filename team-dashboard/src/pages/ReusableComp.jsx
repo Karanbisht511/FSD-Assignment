@@ -7,7 +7,7 @@ export default function ReusableComp() {
     const changeBg = () => {
         if (bgColor === 'yellow')
             setBgColor("red")
-        else if (bgColor == 'red')
+        else if (bgColor === 'red')
             setBgColor('yellow')
     }
 

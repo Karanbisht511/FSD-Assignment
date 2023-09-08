@@ -5,7 +5,7 @@ import bg from "../images/bg.jpg"
 import Member from "./Member.jsx"
 
 export default function Team() {
-    const { auth, logout } = useContext(AuthContext)
+    const { auth } = useContext(AuthContext)
     const { isAuthenticated } = auth
 
     const nameList = ['Beng Tiong Tang', 'Niraj Kumar Jha', 'Siddhart Pandey', 'Jatin Suri', 'Parasmani Jain', 'Saurabh Nilegaonkar', 'Bhawana Sharma']
