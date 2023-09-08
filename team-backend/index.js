@@ -8,7 +8,7 @@ const cors=require('cors')
 
 const app=express()
 app.use(cors({
-  origin: ['http://localhost:3000']
+  origin: ['http://localhost:3000','https://fsa-frontend.onrender.com']
 }));
 const port=8000||process.env.PORT
 
