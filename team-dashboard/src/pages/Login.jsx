@@ -50,10 +50,10 @@ export default function Login() {
         <div className="login_wrapper">
             <Brand />
             <div id="errorBar">
-                {authError && <p> {authError} </p>}
-                {(errors.userID || errors.password) && <p>Please enter login credentials to continue</p>}
-                {errors.userID && <p>{errors.userID}</p>}
-                {errors.password && <p>{errors.password}</p>}
+                {authError && <p className="authErr"> {authError} </p>}
+                {(errors.userID || errors.password) && <p className="formErr">Please enter login credentials to continue</p>}
+                {errors.userID && <p className="userIDErr">{errors.userID}</p>}
+                {errors.password && <p className="pwdErr">{errors.password}</p>}
             </div>
 
             {navigateToHome && <Navigate to="/home" replace={true} />}

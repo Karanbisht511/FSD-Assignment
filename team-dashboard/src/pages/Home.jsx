@@ -1,7 +1,8 @@
-import { Outlet, Navigate,NavLink } from "react-router-dom"
+import { Outlet, Navigate, NavLink } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import AuthContext from "../context/AuthContext"
 import UserDetailsContext from "../context/UserDetailsContext.js"
+import Navbar from "./Navbar"
 import Brand from "./Brand"
 import "./home.css"
 
@@ -17,20 +18,17 @@ export default function Home() {
             const customerID = sessionStorage.getItem("customerID");
             getUserDetails(customerID, token)
         }
-    },[])
+    }, [])
 
     if (!isAuthenticated) {
         <Navigate to="/" replace={true} />
     } else {
         return <>
             <div className="home">
-              
                 <div className="main_container">
-                <Brand />
+                    <Brand />
                     <div className="navigation common_width" >
-                        <NavLink  className="nav_links" to="dashboard">Dashboard</NavLink>
-                        <NavLink className="nav_links" to="about">About</NavLink>
-                        <NavLink className="nav_links" to="team">Team</NavLink>
+                        <Navbar />
                     </div>
                     <div className="content">
                         <Outlet />

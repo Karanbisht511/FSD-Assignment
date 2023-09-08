@@ -1,0 +1,6 @@
+{
+  "authError": "Invalid User Credentials!",
+  "formError": "Please enter login credentials to continue",
+  "userIDError": "Error! UserID should have length between 8 and 20",
+  "pwdError": "Error! Password should have length between 8 and 20"
+}
