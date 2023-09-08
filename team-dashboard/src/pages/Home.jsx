@@ -1,4 +1,4 @@
-import { Outlet, Navigate, NavLink } from "react-router-dom"
+import { Outlet, Navigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import AuthContext from "../context/AuthContext"
 import UserDetailsContext from "../context/UserDetailsContext.js"
@@ -18,7 +18,7 @@ export default function Home() {
             const customerID = sessionStorage.getItem("customerID");
             getUserDetails(customerID, token)
         }
-    }, [])
+    })
 
     if (!isAuthenticated) {
         <Navigate to="/" replace={true} />
