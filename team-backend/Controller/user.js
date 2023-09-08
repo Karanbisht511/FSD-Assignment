@@ -5,10 +5,6 @@ const UserDetails = require("../Model/userDataSchema");
 const { areValidCredentials } = require("../Utils/validateCredentials");
 
 exports.login = async (req, res) => {
-  console.log("/login");
-
-  const response = {};
-
   try {
     const { userID, password } = req.body;
     const userPayload = { userID };
@@ -21,7 +17,7 @@ exports.login = async (req, res) => {
       const { passwordHash } = result;
       bcrypt.compare(password, passwordHash, function (err, isEqual) {
         if (err) {
-          console.log("----error:" + err);
+          console.log("error:" + err);
         }
         if (isEqual) {
           const token = generateToken(userPayload);
@@ -56,11 +52,10 @@ exports.signup = (req, res) => {
 
     if (areValidCredentials(id, password)) {
       const saltRounds = 10;
-      console.log(`----------password:${password}  -----id:${id}`);
 
       bcrypt.hash(password, saltRounds, function (err, passwordHash) {
         if (err) {
-          console.log("----error:" + err);
+          console.log("error:" + err);
         }
 
         const newUser = new User({ userID: id, passwordHash });
@@ -111,9 +106,7 @@ exports.addUserDetails = async (req, res) => {
 };
 
 exports.retrieveUserDetails = async (req, res) => {
-  console.log("-----------Retrieve data");
   try {
-    // console.log(req.params);
     const customerID = req.tokenDecode.userID;
     console.log(customerID);
     const result = await UserDetails.findOne({ "customer.id": customerID });

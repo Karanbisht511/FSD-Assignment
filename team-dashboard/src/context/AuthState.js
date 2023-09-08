@@ -34,7 +34,6 @@ export default function AuthState(props) {
           }));
         });
     } catch (error) {
-      // console.log(error);
       const { message } = error?.response?.data;
       console.log(message);
       setAuth((prev) => ({
